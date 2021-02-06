@@ -24,7 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-import browserLanguage from '../src/nginxconfig/util/browser_language';
+import browserLanguage from '../src/util/browser_language';
 
 class MockLocales {
     static languages = [];
