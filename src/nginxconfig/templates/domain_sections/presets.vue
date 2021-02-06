@@ -59,7 +59,7 @@ THE SOFTWARE.
 
     const defaults = {
         frontend: {
-            default: false,
+            default: true,
             display: 'templates.domainSections.presets.frontend', // i18n key
             enabled: true,
             computedCheck(data) {
@@ -71,7 +71,7 @@ THE SOFTWARE.
             },
         },
         php: {
-            default: true,
+            default: false,
             display: 'common.php', // i18n key
             enabled: true,
             computedCheck(data) {

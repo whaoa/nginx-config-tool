@@ -215,8 +215,13 @@ THE SOFTWARE.
             },
             // Ensure 'Custom'/'Disabled' get translated in VueSelect on language switch
             '$i18n.locale'() {
+                console.log(this.phpServerOptions);
                 const updated = this.phpServerOptions
-                    .find(x => x.value === this.$refs.phpServerOptions.$data._value.value);
+                    .find(x => {
+                        // Fix error: this ref is can not find.
+                        if (!this.$refs.phpServerOptions) return false;
+                        return x.value === this.$refs.phpServerOptions.$data._value.value
+                    });
                 if (updated) this.$refs.phpServerOptions.$data._value = updated;
 
                 const updatedBackup = this.phpBackupServerOptions
