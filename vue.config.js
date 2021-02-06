@@ -26,20 +26,16 @@ THE SOFTWARE.
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
-const WebpackRequireFrom = require('webpack-require-from');
 
 module.exports = {
-    publicPath: './',
     outputDir: 'dist',
     assetsDir: 'static',
-    filenameHashing: true,
     productionSourceMap: false,
     configureWebpack: {
         node: false, // Disable Node.js polyfills (Buffer etc.) -- This will be default in Webpack 5
         plugins: [
             process.argv.includes('--analyze') && new BundleAnalyzerPlugin(),
             process.argv.includes('--analyze') && new DuplicatePackageCheckerPlugin(),
-            new WebpackRequireFrom({ replaceSrcMethodName: '__replaceWebpackDynamicImport' }),
         ].filter(x => !!x),
     },
 };

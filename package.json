@@ -9,8 +9,8 @@
   },
   "main": "src/nginxconfig/mount.js",
   "scripts": {
-    "build": "vue-cli-service build src/mount.js --no-clean",
-    "dev": "vue-cli-service serve src/mount.js",
+    "build": "vue-cli-service build",
+    "dev": "vue-cli-service serve",
     "analyze": "npm run build -- --analyze",
     "test": "npm run test:eslint && npm run test:sass-lint && npm run test:i18n-packs && npm run test:jest",
     "test:jest": "jest /test/.*.js?$",
