@@ -162,7 +162,8 @@ THE SOFTWARE.
             enabled: true,
         },
         contentSecurityPolicy: {
-            default: 'default-src \'self\' http: https: data: blob: \'unsafe-inline\'',
+            // default: 'default-src \'self\' http: https: data: blob: \'unsafe-inline\'',
+            default: '',
             enabled: true,
         },
         serverTokens: {

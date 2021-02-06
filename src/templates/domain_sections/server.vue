@@ -37,7 +37,7 @@ THE SOFTWARE.
             <div class="field">
                 <label class="label">{{ $t('common.path') }}</label>
                 <div :class="`control${pathChanged ? ' is-changed' : ''}`">
-                    <input v-model="path" class="input" type="text" :placeholder="`/var/www/${domain}`" />
+                    <input v-model="path" class="input" type="text" :placeholder="`/var/service/applications/${domain}`" />
                 </div>
             </div>
 
@@ -162,7 +162,7 @@ THE SOFTWARE.
             enabled: true,
         },
         documentRoot: {
-            default: '/public',
+            default: '/',
             enabled: true,
         },
         wwwSubdomain: {
@@ -174,7 +174,7 @@ THE SOFTWARE.
             enabled: false,
         },
         redirectSubdomains: {
-            default: true,
+            default: false,
             enabled: true,
         },
         listenIpv4: {

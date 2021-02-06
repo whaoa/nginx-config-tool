@@ -139,16 +139,16 @@ THE SOFTWARE.
             enabled: true,
         },
         index: {
-            default: 'index.php',
+            default: 'index.html',
             options: ['index.html', 'index.php'],
             enabled: true,
         },
         fallbackHtml: {
-            default: false,
+            default: true,
             enabled: true,
         },
         fallbackPhp: {
-            default: true,
+            default: false,
             enabled: true,
         },
         fallbackPhpPath: {

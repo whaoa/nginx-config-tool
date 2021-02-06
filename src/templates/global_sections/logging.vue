@@ -177,7 +177,7 @@ THE SOFTWARE.
             enabled: true,
         },
         logNotFound: {
-            default: false,
+            default: true,
             enabled: true,
         },
         cloudflare: {

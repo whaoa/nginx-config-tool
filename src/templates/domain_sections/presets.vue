@@ -70,19 +70,23 @@ THE SOFTWARE.
                     && data.routing.fallbackHtml.computed;
             },
         },
-        php: {
+        // singlePageApplication: {
+        //     default: false,
+        //     display: 'templates.domainSections.presets.singlePageApplication', // i18n key
+        //     enabled: true,
+        //     computedCheck(data) {
+        //         return !data.php.php.computed
+        //             && data.routing.index.computed === 'index.html'
+        //             && data.routing.fallbackHtml.computed;
+        //     },
+        // },
+        nodejs: {
             default: false,
-            display: 'common.php', // i18n key
+            display: 'templates.domainSections.presets.nodeJs', // i18n key
             enabled: true,
             computedCheck(data) {
-                return data.php.php.computed
-                    && data.routing.index.computed === 'index.php'
-                    && data.routing.fallbackPhp.computed
-                    && !data.routing.fallbackHtml.computed
-                    && !data.php.wordPressRules.computed
-                    && !data.php.drupalRules.computed
-                    && !data.php.magentoRules.computed
-                    && !data.php.joomlaRules.computed;
+                return data.reverseProxy.reverseProxy.computed
+                    && !data.routing.root.computed;
             },
         },
         django: {
@@ -95,23 +99,20 @@ THE SOFTWARE.
                     && !data.routing.root.computed;
             },
         },
-        nodejs: {
+        php: {
             default: false,
-            display: 'templates.domainSections.presets.nodeJs', // i18n key
+            display: 'common.php', // i18n key
             enabled: true,
             computedCheck(data) {
-                return data.reverseProxy.reverseProxy.computed
-                    && !data.routing.root.computed;
-            },
-        },
-        singlePageApplication: {
-            default: false,
-            display: 'templates.domainSections.presets.singlePageApplication', // i18n key
-            enabled: true,
-            computedCheck(data) {
+                console.log('php', data);
                 return data.php.php.computed
-                    && data.routing.index.computed === 'index.html'
-                    && data.routing.fallbackHtml.computed;
+                    && data.routing.index.computed === 'index.php'
+                    && data.routing.fallbackPhp.computed
+                    && !data.routing.fallbackHtml.computed
+                    && !data.php.wordPressRules.computed
+                    && !data.php.drupalRules.computed
+                    && !data.php.magentoRules.computed
+                    && !data.php.joomlaRules.computed;
             },
         },
         wordPress: {
@@ -226,12 +227,6 @@ THE SOFTWARE.
 
                 switch (key) {
                 case 'frontend':
-                    this.$parent.setValue('php', 'php', false);
-                    this.$parent.setValue('routing', 'index', 'index.html');
-                    this.$parent.setValue('routing', 'fallbackHtml', true);
-                    break;
-
-                case 'php':
                     // Defaults should be PHP
                     break;
 
@@ -253,19 +248,42 @@ THE SOFTWARE.
                     this.$parent.setValue('routing', 'fallbackHtml', true);
                     break;
 
+                case 'php':
+                    this.$parent.setValue('php', 'php', true);
+                    this.$parent.setValue('routing', 'index', 'index.php');
+                    this.$parent.setValue('routing', 'fallbackHtml', false);
+                    this.$parent.setValue('routing', 'fallbackPhp', true);
+                    break;
+
                 case 'wordPress':
+                    this.$parent.setValue('php', 'php', true);
+                    this.$parent.setValue('routing', 'index', 'index.php');
+                    this.$parent.setValue('routing', 'fallbackHtml', false);
+                    this.$parent.setValue('routing', 'fallbackPhp', true);
                     this.$parent.setValue('php', 'wordPressRules', true);
                     break;
 
                 case 'drupal':
+                    this.$parent.setValue('routing', 'index', 'index.php');
+                    this.$parent.setValue('routing', 'fallbackHtml', false);
+                    this.$parent.setValue('routing', 'fallbackPhp', true);
+                    this.$parent.setValue('php', 'php', true);
                     this.$parent.setValue('php', 'drupalRules', true);
                     break;
 
                 case 'magento':
+                    this.$parent.setValue('routing', 'index', 'index.php');
+                    this.$parent.setValue('routing', 'fallbackHtml', false);
+                    this.$parent.setValue('routing', 'fallbackPhp', true);
+                    this.$parent.setValue('php', 'php', true);
                     this.$parent.setValue('php', 'magentoRules', true);
                     break;
 
                 case 'joomla':
+                    this.$parent.setValue('routing', 'index', 'index.php');
+                    this.$parent.setValue('routing', 'fallbackHtml', false);
+                    this.$parent.setValue('routing', 'fallbackPhp', true);
+                    this.$parent.setValue('php', 'php', true);
                     this.$parent.setValue('php', 'joomlaRules', true);
                     break;
                 }

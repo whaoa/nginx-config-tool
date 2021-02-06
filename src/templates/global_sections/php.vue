@@ -225,8 +225,12 @@ THE SOFTWARE.
                 if (updated) this.$refs.phpServerOptions.$data._value = updated;
 
                 const updatedBackup = this.phpBackupServerOptions
-                    .find(x => x.value === this.$refs.phpBackupServerSelect.$data._value.value);
-                if (updatedBackup) this.$refs.phpBackupServerSelect.$data._value = updatedBackup;
+                    .find(x => {
+                        // Fix error: this ref is can not find.
+                        if (!this.$refs.phpBackupServerSelect) return false;
+                        return x.value === this.$refs.phpBackupServerSelect.$data._value.value;
+                    });
+                if (updatedBackup && this.$refs.phpBackupServerSelect) this.$refs.phpBackupServerSelect.$data._value = updatedBackup;
             },
         },
         methods: {

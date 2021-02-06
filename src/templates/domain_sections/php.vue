@@ -146,24 +146,24 @@ THE SOFTWARE.
 
     const defaults = {
         php: {
-            default: true,
+            default: false,
             enabled: true,
         },
         wordPressRules: {
             default: false,
-            enabled: true,
+            enabled: false,
         },
         drupalRules: {
             default: false,
-            enabled: true,
+            enabled: false,
         },
         magentoRules: {
             default: false,
-            enabled: true,
+            enabled: false,
         },
         joomlaRules: {
             default: false,
-            enabled: true,
+            enabled: false,
         },
     };
 
