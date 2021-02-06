@@ -32,7 +32,7 @@ const main = () => {
     const buildDir = path.join(__dirname, '..', '..', '..', 'build');
     let template = fs.readFileSync(path.join(buildDir, 'base.html'), 'utf8');
 
-    template = template.replace('<block name="title"></block>', 'NGINXConfig | ');
+    template = template.replace('<block name="title"></block>', 'NGINX Config Tool');
     template = template.replace('<block name="head"></block>', '');
     template = template.replace('<block name="content"></block>', '<div id="app"></div>');
 

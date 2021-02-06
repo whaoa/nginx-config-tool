@@ -30,7 +30,7 @@ $callout: #f3f5f9;
 @import "~do-bulma/src/style";
 
 .do-bulma {
-  @import "../../../build/prism";
+  @import "./prism";
 
   $pretty--color-dark: $primary;
   $pretty--color-default: $primary;

@@ -24,7 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-const path = require('path');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const WebpackRequireFrom = require('webpack-require-from');
@@ -32,7 +31,8 @@ const WebpackRequireFrom = require('webpack-require-from');
 module.exports = {
     publicPath: './',
     outputDir: 'dist',
-    filenameHashing: false, // Don't hash the output, so we can embed on the DigitalOcean Community
+    assetsDir: 'static',
+    filenameHashing: true,
     productionSourceMap: false,
     configureWebpack: {
         node: false, // Disable Node.js polyfills (Buffer etc.) -- This will be default in Webpack 5
@@ -41,12 +41,5 @@ module.exports = {
             process.argv.includes('--analyze') && new DuplicatePackageCheckerPlugin(),
             new WebpackRequireFrom({ replaceSrcMethodName: '__replaceWebpackDynamicImport' }),
         ].filter(x => !!x),
-    },
-    chainWebpack: config => {
-        // Use a custom HTML template
-        config.plugin('html').tap(options => {
-            options[0].template = path.join(__dirname, 'build', 'index.html');
-            return options;
-        });
     },
 };
