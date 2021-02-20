@@ -1,5 +1,5 @@
 {
-  "name": "nginxconfig.io",
+  "name": "nginx-config-tool",
   "version": "1.0.0",
   "description": "NGINX config 在线生成工具",
   "private": true,
@@ -7,7 +7,6 @@
   "engines": {
     "node": ">=12.16.2"
   },
-  "main": "src/nginxconfig/mount.js",
   "scripts": {
     "build": "vue-cli-service build",
     "dev": "vue-cli-service serve",
@@ -26,16 +25,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/digitalocean/nginxconfig.io.git"
+    "url": "git+https://github.com/whaoa/nginx-config-tool.git"
   },
-  "keywords": [
-    "nginx"
-  ],
-  "author": "DigitalOcean",
-  "bugs": {
-    "url": "https://github.com/digitalocean/nginxconfig.io/issues"
-  },
-  "homepage": "https://github.com/digitalocean/nginxconfig.io#readme",
+  "homepage": "https://github.com/whaoa/nginx-config-tool#readme",
   "dependencies": {
     "clipboard": "^2.0.6",
     "clone": "^2.1.2",
