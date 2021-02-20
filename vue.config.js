@@ -28,7 +28,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 
 module.exports = {
-    publicPath: '/nginx',
+    publicPath: './',
     outputDir: 'dist',
     assetsDir: 'static',
     productionSourceMap: false,
